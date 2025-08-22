@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.util.Arrays;
 
 public class Person {
 
@@ -73,35 +72,38 @@ public class Person {
 
 
     Person[] peopleMassiv = new Person[10];
-      int studentCount;
+      int personCount;
 
     // todo create method  - метод  добавление
     public void createPerson(Person newPerson) {
 //        peopleMassiv = Arrays.copyOf(peopleMassiv, peopleMassiv.length + 1);
 //        peopleMassiv[peopleMassiv.length - 1] = newPerson;
 
-        peopleMassiv[studentCount++] = newPerson;
+        peopleMassiv[personCount++] = newPerson;
 
         System.out.println(" create Person   ");;
     }
 
     // todo delete by personId
     public void  deleteByPersonId(Long personId){
+
         boolean islaik = false;
 
-        for (int i = 0; i < studentCount; i++) {
+        for (int i = 0; i < personCount; i++) {
             if (peopleMassiv[i].getId().equals(personId)) {
                 islaik = true;
 
-                for (int v = i; v < studentCount - 1; v++) {
+                for (int v = i; v < personCount - 1; v++) {
                     peopleMassiv[v] = peopleMassiv[v + 1];
                 }
 
-                studentCount--;
+                personCount--;
                 System.out.println("deleted !!");
+                for (int t = 0; t < personCount; t++) {
+                    System.out.println( "все люди : " +peopleMassiv[t]);
+                }
             }
         }
-
         if (!islaik) {
             System.out.println("student with id " + personId + " not found!");
         }
@@ -117,7 +119,7 @@ public class Person {
 //            System.out.println(person);
 //        }
 
-        for (int i = 0; i < studentCount; i++) {
+        for (int i = 0; i < personCount; i++) {
             System.out.println(peopleMassiv[i]);
         }
     }
