@@ -6,34 +6,48 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Person person = new Person();
 
+
+
+
+        Person person = new Person();
         Person person1 = new Person(1L, "Aina", "aiana@gmai.com",
                 LocalDate.of(2008, 8, 7), "+996501026468");
         Person person2 = new Person(2L, "Tansuluu", "tansuluu@gmai.com",
                 LocalDate.of(2004, 8, 7), "+996501026460");
-        // todo create method  - метод  добавление
+//        // todo create method  - метод  добавление
         person.createPerson(person1);
         person.createPerson(person2);
-        // todo  get all  person
+//        // todo  get all  person
         person.getAllPersons();
-        System.out.println("-------------");
-        // todo get by id person
-        Long id = 1L;
-//        person.getByIdPerson(2L);
-        // todo  update person
-        System.out.println(" ----------------------------- updated -----------------------------");
-//        person.updatePerson(1L, new Person(1L, "Tansuluu", "tansuluu@gmai.com",
-//                LocalDate.of(2004, 8, 7), "+996501026460"));
-//        System.out.println(" ----------------------------- get all-----------------------------");
-//        // get all
+        System.out.println("--------------------------------");
+        person.deleteByPersonId(1L);
+        System.out.println("--------------------------------");
 //        person.getAllPersons();
-        // delete by person id
-        System.out.println("--------------------delete  -----------------");
-        person.deleteByPersonId(2L);
-        System.out.println("--------------------get all -----------------");
-// get all
         person.getAllPersons();
+
+
+
+
+
+
+//        System.out.println("-------------");
+//        // todo get by id person
+//        Long id = 1L;
+////        person.getByIdPerson(2L);
+//        // todo  update person
+//        System.out.println(" ----------------------------- updated -----------------------------");
+////        person.updatePerson(1L, new Person(1L, "Tansuluu", "tansuluu@gmai.com",
+////                LocalDate.of(2004, 8, 7), "+996501026460"));
+////        System.out.println(" ----------------------------- get all-----------------------------");
+////        // get all
+////        person.getAllPersons();
+//        // delete by person id
+//        System.out.println("--------------------delete  -----------------");
+//        person.deleteByPersonId(2L);
+//        System.out.println("--------------------get all -----------------");
+//// get all
+//        person.getAllPersons();
 
 
 //        School school1 = new School("nurmanbetov - 16","KGZ",2000);

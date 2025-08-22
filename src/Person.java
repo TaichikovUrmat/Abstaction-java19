@@ -73,13 +73,43 @@ public class Person {
 
 
     Person[] peopleMassiv = new Person[0];
+      int coundPerson = 0;
 
     // todo create method  - метод  добавление
     public void createPerson(Person newPerson) {
         peopleMassiv = Arrays.copyOf(peopleMassiv, peopleMassiv.length + 1);
         peopleMassiv[peopleMassiv.length - 1] = newPerson;
+
+//        peopleMassiv[coundPerson++] = newPerson;
+
         System.out.println(" create Person   ");;
     }
+
+    // todo delete by personId
+    public void  deleteByPersonId(Long personId){
+
+        int index = -1;
+        for (int i = 0; i < peopleMassiv.length; i++) {
+            if (peopleMassiv[i].getId() == personId) {
+                index = i;
+                break;
+            }
+        }
+        Person[] newPerson = new Person[peopleMassiv.length - 1];
+        for (int i = 0; i < index; i++) {
+            newPerson[i] = peopleMassiv[i];
+        }
+        for (int i = 0; i < newPerson.length; i++) {
+            newPerson[i] = peopleMassiv[i + 1];
+        }
+        System.out.println(Arrays.toString(newPerson));
+        peopleMassiv = newPerson;
+
+    }
+
+
+
+
     // todo get all - ввести все данные
     public void getAllPersons() {
         for (Person person : peopleMassiv) {
@@ -119,29 +149,7 @@ public class Person {
         }
     }
 
-    // todo delete by personId
-    public void  deleteByPersonId(Long personId){
 
-        for (int i = 0; i < peopleMassiv.length; i++) {
-            if (peopleMassiv[i].getId().equals(personId)){
-                peopleMassiv[peopleMassiv.length - 1 ]  = peopleMassiv[i];
-                System.out.println("delete");
-            }
-        }
-
-//
-//        boolean isbloc = false;
-//        for (Person person : peopleMassiv) {
-//            if (person.getId().equals(personId)) {
-//                isbloc = true;
-//                peopleMassiv[peopleMassiv.length -1 ] = person;
-//                System.out.println("deleted");
-//            }
-//        }
-//        if (!isbloc) {
-//            System.out.println("Myndai person id jok !!");
-//        }
-    }
 
 
     ;
