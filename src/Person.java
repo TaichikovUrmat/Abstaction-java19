@@ -72,38 +72,39 @@ public class Person {
     }
 
 
-    Person[] peopleMassiv = new Person[0];
-      int coundPerson = 0;
+    Person[] peopleMassiv = new Person[10];
+      int studentCount;
 
     // todo create method  - метод  добавление
     public void createPerson(Person newPerson) {
-        peopleMassiv = Arrays.copyOf(peopleMassiv, peopleMassiv.length + 1);
-        peopleMassiv[peopleMassiv.length - 1] = newPerson;
+//        peopleMassiv = Arrays.copyOf(peopleMassiv, peopleMassiv.length + 1);
+//        peopleMassiv[peopleMassiv.length - 1] = newPerson;
 
-//        peopleMassiv[coundPerson++] = newPerson;
+        peopleMassiv[studentCount++] = newPerson;
 
         System.out.println(" create Person   ");;
     }
 
     // todo delete by personId
     public void  deleteByPersonId(Long personId){
+        boolean islaik = false;
 
-        int index = -1;
-        for (int i = 0; i < peopleMassiv.length; i++) {
-            if (peopleMassiv[i].getId() == personId) {
-                index = i;
-                break;
+        for (int i = 0; i < studentCount; i++) {
+            if (peopleMassiv[i].getId().equals(personId)) {
+                islaik = true;
+
+                for (int v = i; v < studentCount - 1; v++) {
+                    peopleMassiv[v] = peopleMassiv[v + 1];
+                }
+
+                studentCount--;
+                System.out.println("deleted !!");
             }
         }
-        Person[] newPerson = new Person[peopleMassiv.length - 1];
-        for (int i = 0; i < index; i++) {
-            newPerson[i] = peopleMassiv[i];
+
+        if (!islaik) {
+            System.out.println("student with id " + personId + " not found!");
         }
-        for (int i = 0; i < newPerson.length; i++) {
-            newPerson[i] = peopleMassiv[i + 1];
-        }
-        System.out.println(Arrays.toString(newPerson));
-        peopleMassiv = newPerson;
 
     }
 
@@ -112,8 +113,12 @@ public class Person {
 
     // todo get all - ввести все данные
     public void getAllPersons() {
-        for (Person person : peopleMassiv) {
-            System.out.println(person);
+//        for (Person person : peopleMassiv) {
+//            System.out.println(person);
+//        }
+
+        for (int i = 0; i < studentCount; i++) {
+            System.out.println(peopleMassiv[i]);
         }
     }
 

@@ -21,7 +21,7 @@ public class Main {
 //        // todo  get all  person
         person.getAllPersons();
         System.out.println("--------------------------------");
-        person.deleteByPersonId(1L);
+        person.deleteByPersonId(2L);
         System.out.println("--------------------------------");
 //        person.getAllPersons();
         person.getAllPersons();
